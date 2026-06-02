@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Book Flight</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1 style="text-align:center;">
+Flight Booking
+</h1>
+
+<!-- FLASH MESSAGE -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <p style="color:red;text-align:center;">
+
+                {{ message }}
+
+            </p>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+
+<form method="POST" action="/book">
+
+    <!-- PASSENGER NAME -->
+    <input
+    type="text"
+    name="passenger_name"
+    placeholder="Passenger Name"
+    required>
+
+    <br><br>
+
+    <!-- AGE -->
+    <input
+    type="number"
+    name="passenger_age"
+    placeholder="Passenger Age"
+    required>
+
+    <br><br>
+
+    <!-- GENDER -->
+    <label>Gender</label>
+
+    <select name="gender">
+
+        <option>Male</option>
+
+        <option>Female</option>
+
+    </select>
+
+    <br><br>
+
+    <!-- PASSENGER TYPE -->
+    <label>Passenger Type</label>
+
+    <select name="passenger_type">
+
+        <option>Adult</option>
+
+        <option>Student</option>
+
+        <option>Senior Citizen</option>
+
+    </select>
+
+    <br><br>
+
+    <!-- TRAVEL CLASS -->
+    <label>Travel Class</label>
+
+    <select name="travel_class">
+
+        <option>Economy</option>
+
+        <option>Business</option>
+
+        <option>First Class</option>
+
+    </select>
+
+    <br><br>
+
+    <!-- PAYMENT -->
+    <label>Payment Method</label>
+
+    <select name="payment_method">
+
+        <option>UPI</option>
+
+        <option>Credit Card</option>
+
+        <option>Debit Card</option>
+
+        <option>Net Banking</option>
+
+    </select>
+
+    <br><br>
+
+    <h2 style="text-align:center;">
+    Select Your Seat
+    </h2>
+
+    <!-- PLANE SEATS -->
+    <div class="plane">
+
+        <!-- LEFT -->
+        <div class="left-column">
+
+            {% for seat in ['A1','A2','B1','B2'] %}
+
+            <label class="seat
+            {% if seat in booked_seats %}
+            booked
+            {% endif %}
+            ">
+
+            {% if seat not in booked_seats %}
+
+            <input
+            type="radio"
+            name="selected_seat"
+            value="{{ seat }}"
+            required>
+
+            {% endif %}
+
+            {{ seat }}
+
+            </label>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- MIDDLE -->
+        <div class="middle-column">
+
+            {% for seat in ['C1','C2','C3','D1','D2','D3'] %}
+
+            <label class="seat
+            {% if seat in booked_seats %}
+            booked
+            {% endif %}
+            ">
+
+            {% if seat not in booked_seats %}
+
+            <input
+            type="radio"
+            name="selected_seat"
+            value="{{ seat }}">
+
+            {% endif %}
+
+            {{ seat }}
+
+            </label>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right-column">
+
+            {% for seat in ['E1','E2','F1','F2'] %}
+
+            <label class="seat
+            {% if seat in booked_seats %}
+            booked
+            {% endif %}
+            ">
+
+            {% if seat not in booked_seats %}
+
+            <input
+            type="radio"
+            name="selected_seat"
+            value="{{ seat }}">
+
+            {% endif %}
+
+            {{ seat }}
+
+            </label>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <button type="submit">
+
+        Confirm Booking
+
+    </button>
+
+</form>
+
+</body>
+</html>

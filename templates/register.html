@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Register</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <h1>Create Account</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <input type="text"
+               name="username"
+               placeholder="Enter Username"
+               required>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+               required>
+
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
+
+        <button type="submit" class="register-btn">
+            Register
+        </button>
+
+    </form>
+
+    {% if qr_image %}
+        <h3 style="margin-top:20px;">
+            Scan QR in Google Authenticator
+        </h3>
+
+        <img src="{{ qr_image }}"
+             width="200"
+             style="margin-top:20px;">
+    {% endif %}
+
+    <p style="margin-top:20px; text-align:center;">
+        Already have account?
+        <a href="/login">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

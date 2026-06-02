@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight AI Home</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+    <div class="container">
+        
+        <h1>AI Flight Booking System</h1>
+
+        <p style="text-align:center; margin-bottom:20px;">
+            Smart AI Powered Travel Assistant
+        </p>
+
+        <div class="button-group">
+
+            <a href="/register">
+    <button class="register-btn">
+        Register
+    </button>
+</a>
+
+<a href="/login">
+    <button class="login-btn">
+        Login
+    </button>
+</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

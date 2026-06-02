@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Flights</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+    #bg-video{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        z-index:-1;
+    }
+
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+    }
+
+    h1{
+        text-align:center;
+        color:white;
+        margin-top:30px;
+    }
+
+    .results-container{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:25px;
+        padding:30px;
+        position:relative;
+        z-index:10;
+    }
+
+    .flight-card{
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(10px);
+        border-radius:15px;
+        padding:20px;
+        width:300px;
+        color:white;
+        text-align:center;
+        box-shadow:0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .flight-card h2{
+        margin-bottom:15px;
+    }
+
+    .flight-card p{
+        margin:8px 0;
+    }
+
+    .flight-card button{
+        background:#007bff;
+        color:white;
+        border:none;
+        padding:12px 20px;
+        border-radius:8px;
+        cursor:pointer;
+        margin-top:10px;
+        font-size:16px;
+    }
+
+    .flight-card button:hover{
+        background:#0056b3;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<h1>Available Flights</h1>
+
+<div class="results-container">
+
+{% for flight in flights %}
+
+```
+<div class="flight-card">
+
+    <h2>{{ flight.airline }}</h2>
+
+    <p>
+        <strong>{{ source }}</strong>
+        →
+        <strong>{{ destination }}</strong>
+    </p>
+
+    <p>Date: {{ date }}</p>
+
+    <p>Time: {{ flight.time }}</p>
+
+    <p>Price: ₹{{ flight.price }}</p>
+
+    <p>Class: {{ flight.class }}</p>
+
+    <a href="/book">
+        <button type="button">
+            Book Now
+        </button>
+    </a>
+
+</div>
+```
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

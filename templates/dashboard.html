@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">
+        Flight AI Dashboard
+    </h1>
+
+    <div class="dashboard-buttons">
+
+        <a href="/flight" class="dash-btn flight-btn">
+            Search Flights
+        </a>
+
+        <a href="/chatbot" class="dash-btn chat-btn">
+            AI Travel Assistant
+        </a>
+
+        <a href="/trip-planner" class="dash-btn trip-btn">
+            AI Trip Planner
+        </a>
+
+        <a href="/logout" class="dash-btn logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

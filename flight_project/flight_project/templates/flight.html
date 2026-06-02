@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Flight Search</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>
+
+Search Flights
+
+</h1>
+
+<form method="POST" action="/flight">
+
+<input
+type="text"
+name="from_city"
+placeholder="From City"
+required>
+
+<br><br>
+
+<input
+type="text"
+name="to_city"
+placeholder="To City"
+required>
+
+<br><br>
+
+<input
+type="date"
+name="date"
+required>
+
+<br><br>
+
+<button type="submit">
+
+Search Flights
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

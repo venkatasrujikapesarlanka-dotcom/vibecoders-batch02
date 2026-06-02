@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>OTP Verification</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="container">
+
+    <h1>OTP Verification</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+    <form method="POST">
+
+        <input type="text"
+               name="otp"
+               placeholder="Enter Google Authenticator OTP"
+               required>
+
+        <button type="submit">
+
+            Verify OTP
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

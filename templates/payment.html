@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <h1>UPI Payment</h1>
+
+    <h3>Scan QR Code</h3>
+
+    <img src="{{ url_for('static', filename='upi_qr.png') }}"
+         width="250">
+
+    <p>UPI ID: yourupi@upi</p>
+
+    <form action="/payment_success" method="POST">
+        <button type="submit">
+            I Have Completed Payment
+            <form action="/payment_success" method="POST">
+
+    <button type="submit">
+    I Have Completed Card Payment
+</button>
+
+</form>
+        </button>
+    </form>
+
+</div>
+
+</body>
+</html>

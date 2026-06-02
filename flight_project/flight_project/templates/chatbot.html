@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>AI Travel Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Travel Assistant</h1>
+
+    <form method="POST">
+
+        <input type="text"
+               name="message"
+               placeholder="Ask travel questions..."
+               required>
+
+        <button type="submit">
+
+            Ask AI
+
+        </button>
+
+    </form>
+
+    {% if response %}
+
+        <div style="margin-top:20px;">
+
+            <h3>AI Response:</h3>
+
+            <p>{{ response }}</p>
+
+        </div>
+
+    {% endif %}
+
+    <a href="/dashboard">
+
+        <button>
+
+            Back to Dashboard
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <h1>✈ Search Flights</h1>
+
+    <form action="/results" method="POST">
+
+        <label>From</label>
+        <input type="text"
+               name="source"
+               placeholder="Enter Departure City"
+               required>
+
+        <label>To</label>
+        <input type="text"
+               name="destination"
+               placeholder="Enter Destination City"
+               required>
+
+        <label>Departure Date</label>
+        <input type="date"
+               name="date"
+               required>
+
+        <label>Departure Time</label>
+        <input type="time"
+               name="time"
+               required>
+
+        <label>Passengers</label>
+        <input type="number"
+               name="passengers"
+               min="1"
+               max="10"
+               value="1"
+               required>
+
+        <button type="submit" class="login-btn">
+            Search Flights
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

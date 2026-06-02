@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Payment Success</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="payment-box">
+
+<h1>
+
+Booking Confirmed ✅
+
+</h1>
+
+<h2>
+
+Passenger Details
+
+</h2>
+
+<p>
+
+<b>Name:</b>
+
+{{ passenger_name }}
+
+</p>
+
+<p>
+
+<b>Age:</b>
+
+{{ passenger_age }}
+
+</p>
+
+<p>
+
+<b>Gender:</b>
+
+{{ gender }}
+
+</p>
+
+<p>
+
+<b>Passenger Type:</b>
+
+{{ passenger_type }}
+
+</p>
+
+<p>
+
+<b>Travel Class:</b>
+
+{{ travel_class }}
+
+</p>
+
+<p>
+
+<b>Selected Seat:</b>
+
+{{ selected_seat }}
+
+</p>
+
+<p>
+
+<b>Payment Method:</b>
+
+{{ payment_method }}
+
+</p>
+
+<br>
+
+<h2 style="color:green;">
+
+Payment Successful
+
+</h2>
+
+<a href="/dashboard">
+
+<button>
+
+Go To Dashboard
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+</html>

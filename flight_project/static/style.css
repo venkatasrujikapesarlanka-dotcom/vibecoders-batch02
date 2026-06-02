@@ -1,0 +1,465 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url("airport_bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+}
+
+/* Glass Card */
+
+.container{
+    width:90%;
+    max-width:500px;
+
+    margin:40px auto;
+    padding:35px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.35);
+
+    color:white;
+}
+
+/* Headings */
+
+h1,h2,h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+/* Form */
+
+form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+/* Inputs */
+
+input,
+select{
+    width:260px;
+
+    padding:10px 12px;
+
+    border:none;
+    border-radius:10px;
+
+    outline:none;
+
+    background:rgba(255,255,255,0.9);
+
+    font-size:15px;
+}
+
+/* Buttons */
+
+button{
+    padding:12px 22px;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+/* Home Page Buttons */
+
+.button-group{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.button-group a button:first-child{
+    background:#28a745;
+    color:white;
+}
+
+/* Register Button */
+
+.register-btn,
+button[type="submit"]{
+    background:#28a745;
+    color:white;
+}
+
+/* Login Button */
+
+.login-btn{
+    background:#007bff;
+    color:white;
+}
+
+/* Links */
+
+a{
+    color:#ffd43b;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* Seat Layout */
+
+.plane{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:20px;
+}
+
+.left-column,
+.middle-column,
+.right-column{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* Seats */
+
+.seat{
+    width:65px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#28a745;
+    color:white;
+
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.seat input{
+    display:none;
+}
+
+/* Booked Seats */
+
+.booked{
+    background:#dc3545;
+    cursor:not-allowed;
+}
+
+/* Flash Messages */
+
+.flash{
+    padding:10px;
+    margin-bottom:15px;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+}
+.page-container{
+    width:90%;
+    margin:auto;
+    padding:30px;
+}
+
+.page-title{
+    text-align:center;
+    color:white;
+    font-size:50px;
+    margin-bottom:40px;
+}
+
+.flight-card{
+    max-width:320px;
+    width:100%;
+
+    margin:auto;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    color:white;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.35);
+
+    transition:0.3s;
+}
+
+.flight-card{
+    width:320px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    color:white;
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.35);
+
+    transition:0.3s;
+}
+
+.flight-card:hover{
+    transform:translateY(-8px);
+}
+
+.flight-card h2{
+    text-align:center;
+    margin-bottom:15px;
+    color:#ffd43b;
+}
+
+.flight-card p{
+    margin:10px 0;
+    line-height:1.5;
+}
+
+.book-btn{
+    width:100%;
+
+    background:linear-gradient(
+        135deg,
+        #ff9800,
+        #ff5722
+    );
+
+    color:white;
+
+    padding:12px;
+
+    border:none;
+    border-radius:10px;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.book-btn:hover{
+    background:#f57c00;
+}
+
+.seat input{
+    display:none;
+}
+
+.seat{
+    width:70px;
+    height:50px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#28a745;
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:all 0.3s ease;
+}
+
+.seat:has(input:checked){
+
+    background:#007bff;
+
+    border:3px solid white;
+
+    transform:scale(1.15);
+
+    box-shadow:
+    0 0 15px #007bff,
+    0 0 30px #007bff;
+
+    animation:pulse 1s infinite;
+}
+
+.booked{
+    background:#dc3545 !important;
+    cursor:not-allowed;
+}
+
+@keyframes pulse{
+
+    0%{
+        box-shadow:0 0 10px #007bff;
+    }
+
+    50%{
+        box-shadow:
+        0 0 25px #007bff,
+        0 0 40px #007bff;
+    }
+
+    100%{
+        box-shadow:0 0 10px #007bff;
+    }
+}
+
+.legend{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+
+    color:white;
+
+    margin-bottom:20px;
+}
+
+.available-box,
+.selected-box,
+.booked-box{
+    width:20px;
+    height:20px;
+
+    border-radius:5px;
+
+    display:inline-block;
+}
+
+.available-box{
+    background:#28a745;
+}
+
+.selected-box{
+    background:#007bff;
+}
+
+.booked-box{
+    background:#dc3545;
+}
+
+#selected-seat{
+
+    width:280px;
+
+    margin:20px auto;
+
+    padding:12px;
+
+    background:#007bff;
+
+    color:white;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+/* VIDEO BACKGROUND */
+
+#bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+}
+
+/* DARK OVERLAY */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.35);
+
+    z-index: -1;
+}
+
+/* KEEP GLASS CARD ABOVE VIDEO */
+
+.container{
+    position: relative;
+    z-index: 5;
+}
+
+/* KEEP INPUTS GLASSY */
+
+input{
+    background: rgba(255,255,255,0.9);
+}
+
+/* BUTTON COLORS */
+
+.register-btn{
+    background:#28a745 !important;
+    color:white;
+}
+
+.login-btn{
+    background:#007bff !important;
+    color:white;
+}

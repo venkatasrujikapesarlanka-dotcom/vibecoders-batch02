@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight E-Ticket</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}"
+            type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <h1>✈ Flight E-Ticket</h1>
+
+    <hr>
+
+    <h3>Passenger Information</h3>
+
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p><strong>Gender:</strong> {{ gender }}</p>
+
+    <hr>
+
+    <h3>Travel Details</h3>
+
+    <p><strong>Source:</strong> {{ source }}</p>
+    <p><strong>Destination:</strong> {{ destination }}</p>
+    <p><strong>Date:</strong> {{ date }}</p>
+    <p><strong>Time:</strong> {{ time }}</p>
+    <p><strong>Travel Class:</strong> {{ travel_class }}</p>
+    <p><strong>Seat Number:</strong> {{ seat }}</p>
+
+    <hr>
+
+    <h3>Payment Details</h3>
+
+    <p><strong>Payment Method:</strong> {{ payment_method }}</p>
+    <p><strong>Amount Paid:</strong> ₹{{ amount }}</p>
+    <p><strong>Payment Status:</strong> Successful</p>
+
+    <hr>
+
+    <h3>Ticket Information</h3>
+
+    <p><strong>Ticket ID:</strong> {{ ticket_id }}</p>
+    <p><strong>PNR Number:</strong> {{ pnr }}</p>
+    <h4>Ticket QR Code</h4>
+
+<img src="{{ url_for('static', filename=qr_image) }}"
+     width="300"
+     height="300"
+     alt="Ticket QR Code">
+    <hr>
+    <div style="text-align:center; margin-top:20px;">
+
+    <!-- SUBMIT BUTTON (BACK TO DASHBOARD OR HOME) -->
+    <form action="/dashboard" method="GET" style="display:inline;">
+        <button type="submit" class="book-btn">
+            Back to Dashboard
+        </button>
+    </form>
+
+    <!-- EMAIL BUTTON -->
+    <form action="/send-ticket-email" method="POST" style="display:inline;">
+        <button type="submit" class="book-btn">
+            Send Ticket to Email
+        </button>
+    </form>
+
+</div>
+
+    <h2>🎉 Booking Confirmed</h2>
+
+    <p>Have a Safe Journey!</p>
+
+</div>
+```
+
+</body>
+</html>

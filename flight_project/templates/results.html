@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Flight Results</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<h1 style="text-align:center; margin-top:30px;">
+
+Available Flights
+
+</h1>
+
+<div class="results-container">
+
+    <!-- FLIGHT CARD 1 -->
+    <div class="flight-card">
+
+        <h2>IndiGo</h2>
+
+        <p>
+
+        {{ from_city }}
+        →
+        {{ to_city }}
+
+        </p>
+
+        <p>
+
+        Date:
+        {{ date }}
+
+        </p>
+
+        <p>
+
+        Time:
+        10:00 AM
+
+        </p>
+
+        <p>
+
+        Price:
+        ₹4,500
+
+        </p>
+
+        <p>
+
+        Class:
+        Economy
+
+        </p>
+
+        <a href="/book">
+
+        <button>
+
+        Book Now
+
+        </button>
+
+        </a>
+
+    </div>
+
+    <!-- FLIGHT CARD 2 -->
+    <div class="flight-card">
+
+        <h2>Air India</h2>
+
+        <p>
+
+        {{ from_city }}
+        →
+        {{ to_city }}
+
+        </p>
+
+        <p>
+
+        Date:
+        {{ date }}
+
+        </p>
+
+        <p>
+
+        Time:
+        1:30 PM
+
+        </p>
+
+        <p>
+
+        Price:
+        ₹6,800
+
+        </p>
+
+        <p>
+
+        Class:
+        Business
+
+        </p>
+
+        <a href="/book">
+
+        <button>
+
+        Book Now
+
+        </button>
+
+        </a>
+
+    </div>
+
+    <!-- FLIGHT CARD 3 -->
+    <div class="flight-card">
+
+        <h2>Vistara</h2>
+
+        <p>
+
+        {{ from_city }}
+        →
+        {{ to_city }}
+
+        </p>
+
+        <p>
+
+        Date:
+        {{ date }}
+
+        </p>
+
+        <p>
+
+        Time:
+        6:45 PM
+
+        </p>
+
+        <p>
+
+        Price:
+        ₹10,500
+
+        </p>
+
+        <p>
+
+        Class:
+        First Class
+
+        </p>
+
+        <a href="/book">
+
+        <button>
+
+        Book Now
+
+        </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

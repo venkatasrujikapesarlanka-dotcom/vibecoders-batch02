@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Flight AI Dashboard</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+    <a href="/flight">
+
+        <button>
+
+            Search Flights
+
+        </button>
+
+    </a>
+
+    <a href="/chatbot">
+
+        <button>
+
+            AI Travel Assistant
+
+        </button>
+
+    </a>
+
+    <a href="/logout">
+
+        <button>
+
+            Logout
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>

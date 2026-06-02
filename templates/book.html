@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Flight</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+</video>
+
+<div class="container">
+
+    <h1>✈ Flight Booking</h1>
+
+    <!-- FLASH MESSAGE -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p style="color:red;text-align:center;">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/book">
+
+        <input type="text" name="passenger_name" placeholder="Passenger Name" required>
+
+        <input type="number" name="passenger_age" placeholder="Passenger Age" required>
+
+        <label>Gender</label>
+        <select name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Passenger Type</label>
+        <select name="passenger_type">
+            <option>Adult</option>
+            <option>Student</option>
+            <option>Senior Citizen</option>
+        </select>
+
+        <label>Travel Class</label>
+        <select name="travel_class">
+            <option>Economy</option>
+            <option>Business</option>
+            <option>First Class</option>
+        </select>
+
+        <label>Payment Method</label>
+        <select name="payment_method">
+            <option>UPI</option>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>Net Banking</option>
+        </select>
+
+        <h2>Select Your Seats</h2>
+
+        <!-- LEGEND -->
+        <div class="legend">
+            <span class="available-box"></span> Available
+            <span class="selected-box"></span> Selected
+            <span class="booked-box"></span> Booked
+        </div>
+
+        <!-- SEAT LAYOUT -->
+
+        <div class="plane">
+
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+                {% for seat in ['A1','A2','B1','B2'] %}
+
+                <label class="seat {% if seat in booked_seats %}booked{% endif %}">
+
+                    {% if seat not in booked_seats %}
+                    <input type="checkbox" name="selected_seat" value="{{ seat }}">
+                    {% endif %}
+
+                    {{ seat }}
+
+                </label>
+
+                {% endfor %}
+            </div>
+
+            <!-- MIDDLE COLUMN -->
+            <div class="middle-column">
+                {% for seat in ['C1','C2','C3','D1','D2','D3'] %}
+
+                <label class="seat {% if seat in booked_seats %}booked{% endif %}">
+
+                    {% if seat not in booked_seats %}
+                    <input type="checkbox" name="selected_seat" value="{{ seat }}">
+                    {% endif %}
+
+                    {{ seat }}
+
+                </label>
+
+                {% endfor %}
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-column">
+                {% for seat in ['E1','E2','F1','F2'] %}
+
+                <label class="seat {% if seat in booked_seats %}booked{% endif %}">
+
+                    {% if seat not in booked_seats %}
+                    <input type="checkbox" name="selected_seat" value="{{ seat }}">
+                    {% endif %}
+
+                    {{ seat }}
+
+                </label>
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <br>
+
+        <!-- SELECTED SEATS DISPLAY -->
+        <div id="selected-seat">
+            Selected Seats: None
+        </div>
+
+        <br>
+
+        <button type="submit" class="book-btn">
+            Confirm Booking
+        </button>
+
+    </form>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const seats = document.querySelectorAll('input[name="selected_seat"]');
+const display = document.getElementById('selected-seat');
+
+function updateDisplay() {
+
+    let selected = [];
+
+    seats.forEach(seat => {
+        if (seat.checked) {
+            selected.push(seat.value);
+        }
+    });
+
+    display.innerHTML =
+        "✈ Selected Seats: <b>" + selected.join(", ") + "</b>";
+}
+
+seats.forEach(seat => {
+    seat.addEventListener('change', updateDisplay);
+});
+
+</script>
+
+</body>
+
+</html>
